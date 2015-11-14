@@ -1,0 +1,35 @@
+# Title : FizzBuzz by CodeEval
+# Author : James Fody
+# Description : Write a program that prints out the final series of numbers where those divisible by X, Y
+# and both are replaced by F for fizz, B for buzz and FB for fizz buzz.
+
+import sys
+
+test_cases = open("/Users/jimfo1/Desktop/fizzbuzz3.txt", 'r')
+
+for test in test_cases:
+
+    test = [int(t) for t in test.strip().split()]
+
+    x = test[0]
+    y = test[1]
+    z = test[2]
+
+    result = ""
+
+    for i in range(1, z+1):
+        if i % x == 0 and i % y == 0:
+            result += "FB "
+
+        elif i % y == 0:
+            result += "B "
+
+        elif i % x == 0:
+            result += "F "
+
+        else:
+            result += str(i) + " "
+
+    print result.strip()
+
+test_cases.close()
