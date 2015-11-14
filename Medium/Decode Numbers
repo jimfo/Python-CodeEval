@@ -1,0 +1,28 @@
+# Title : Decode Numbers by CodeEval
+# Author : James Fody
+# Description : You are given an encoded message containing only numbers.
+# You are also provided with the following mapping: A:1, B:2, C:3 ... Z:26
+# Given an encoded message, count the number of ways it can be decoded.
+
+import sys
+
+test_cases = open("/Users/jimfo1/PycharmProjects/DecodeNumbers/testdata", 'r')
+
+for test in test_cases:
+
+    num = list(test.strip())
+
+    amt = 1
+
+    for x in range(0, len(num)):
+        if int(num[x]) == 0:
+            amt = 0
+
+    for x in range(0, len(num)-1):
+        val = int(num[x]+num[x+1])
+        if val < 26 and val > 0:
+            amt += 1
+
+    print amt
+
+test_cases.close()
