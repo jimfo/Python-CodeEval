@@ -1,0 +1,37 @@
+# Title : Happy Numbers by CodeEval
+# Author : James Fody
+# Description : A happy number is defined by the following process. Starting with any positive integer,
+# replace the number by the sum of the squares of its digits, and repeat the process until the number
+# equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers
+# for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers.
+
+import sys
+
+test_cases = open("/Users/jimfo1/Desktop/fizzbuzz3.txt", 'r')
+
+for test in test_cases:
+
+    line = test.strip()
+    result = 0
+    sq = 0
+
+    chkset = set()
+
+    while not line == "1" and line not in chkset:
+        chkset.add(line)
+
+        for x in range(0, len(line)):
+            num = int(line[x])
+            sq = num * num
+            result += sq
+
+        line = str(result).strip()
+        result = 0
+        sq = 0
+
+    if line == "1":
+        print "1"
+    else:
+        print "0"
+
+test_cases.close()
