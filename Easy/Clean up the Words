@@ -1,0 +1,14 @@
+# Title : Clean up the Words by CodeEval
+# Author : James Fody
+# Description : Remove extra symbols and numbers from a given string
+
+import sys
+import re
+
+test_cases = open("/Users/jimfo1/Desktop/fizzbuzz3.txt", 'r')
+
+for test in test_cases:
+
+    print re.sub("[^a-zA-Z]+", " ", test).strip().lower()
+    
+test_cases.close()
