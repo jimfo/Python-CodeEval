@@ -1,0 +1,28 @@
+# TITLE : Calculate Distance from CODE EVAL
+# AUTHOR : James Fody
+# DESCRIPTION : Find the distance between two given points
+
+import sys
+import math
+
+test_cases = open("/Users/jimfo1/Desktop/fizzbuzz3.txt", 'r')
+
+for test in test_cases:
+
+    test = test.replace("(", "")
+    test = test.replace(")", "")
+    test = test.replace(",", "")
+    test = test.split()
+
+    x1 = int(test[0])
+    y1 = int(test[1])
+    x2 = int(test[2])
+    y2 = int(test[3])
+
+    x1 = x2 - x1
+    y1 = y2 - y1
+    distance = math.sqrt((x1 * x1) + (y1 * y1))
+
+    print int(distance)
+
+test_cases.close()
