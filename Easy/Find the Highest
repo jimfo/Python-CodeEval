@@ -1,0 +1,23 @@
+# Title : Find the Highest Score by CodeEval
+# Author : James Fody
+# Description : Each line includes a test case with a table. Table rows are separated by pipes '|'. 
+# All table rows contain scores for each category, so all lines are of an equal length. 
+# Print the highest score for each category. 
+
+import sys
+test_cases = open("/Users/jimfo1/Desktop/fizzbuzz3.txt", 'r')
+
+for test in test_cases:
+    groups = [[]]
+    display = ""
+    groups = test.strip().split('|')
+
+    highest = -1001
+    index = 0
+
+    for x in range(0, len(groups)):
+        groups[x] = groups[x].strip().split()
+        for y in range(0, len(groups[x])):
+            print groups[x][y]
+
+test_cases.close()
