@@ -1,0 +1,27 @@
+# Title : Flavius Joseph by CodeEval
+# that was created by David Arthur.
+# Author : James Fody
+# Description : Print Pascal's Triangle to the nth row
+
+import sys
+
+test_cases = open("/Users/jimfo1/PycharmProjects/FlaviusJoseph/testdata", 'r')
+
+for test in test_cases:
+
+    grp, skip = [int(x) for x in test.strip().split(',')]
+
+    grp = list(xrange(grp))
+
+    x = 0
+
+    output = list()
+
+    while len(grp) > 0:
+        x += skip - 1
+        x %= len(grp)
+        output.append(str(grp.pop(x)))
+
+    print ' '.join(output)
+
+test_cases.close()
