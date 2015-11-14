@@ -1,0 +1,46 @@
+# Title : Data Recovery by CodeEval
+# Author : James Fody
+# Description :  write a program which reconstructs each sentence out of a set of
+# words and prints out the original sentences using a sequence of numbers to rebuild
+# the proper order of words
+
+import sys
+
+test_cases = open("/Users/jimfo1/Desktop/fizzbuzz3.txt", 'r')
+
+for test in test_cases:
+
+    test = test.split(";")
+
+    words = list(test[0].split())
+
+    lastword = ""
+    line = ""
+    test = test[1].split()
+
+    index = list()
+    idx = 0
+    recovered = []
+
+    recovered = [" "] * len(words)
+
+    for x in range(0, len(test)):
+        index.append(int(test[x]))
+
+    for x in index:
+        recovered[x-1] = words[idx]
+        words[idx] = ""
+        idx += 1
+
+    for x in words:
+        lastword += x
+
+    for x in range(0, len(recovered)):
+        if recovered[x] != ' ':
+            line += recovered[x] + " "
+        elif recovered[x] == ' ':
+            line += lastword + " "
+
+    print line.strip()
+
+test_cases.close()
