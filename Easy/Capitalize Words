@@ -1,0 +1,21 @@
+# TITLE : Capitalize Words from CODE EVAL
+# AUTHOR : James Fody
+# DESCRIPTION : Change the first letter of each word in a line to uppercase
+
+import sys
+
+test_cases = open("/Users/jimfo1/Desktop/fizzbuzz3.txt", 'r')
+
+for test in test_cases:
+
+    test = test.strip().split()
+    result = ""
+
+    for t in test:
+        result += ''.join(t[0].upper())
+        result += ''.join(t[1: len(t)])
+        result += " "
+
+    print result
+
+test_cases.close()
