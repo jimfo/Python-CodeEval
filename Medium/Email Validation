@@ -1,0 +1,26 @@
+# Title : Email Validation by CodeEval
+# Author : James Fody
+# Description : Write a program to validate email addresses
+
+import sys
+import re
+
+email = re.compile(
+    r"(^[-!#$%&'*+/=?^_`{}|~0-9A-Z]+(\.[-!#$%&'*+/=?^_`{}|~0-9A-Z]+)*"
+    r'|^"([\001-\010\013\014\016-\037!#-\[\]-\177]|\\[\001-011\013\014\016-\177])*"'
+    r')@(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+[A-Z]{2,6}\.?$', re.IGNORECASE)
+
+test_cases = open("/Users/jimfo1/Desktop/fizzbuzz3.txt", 'r')
+
+for test in test_cases:
+
+    if len(test) > 0:
+
+        test = test.strip()
+
+        if re.search(email, test):
+            print "true"
+        else:
+            print "false"
+
+test_cases.close()
