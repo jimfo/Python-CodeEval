@@ -1,0 +1,51 @@
+# Title : Cash Register by CodeEval
+# Author : James Fody
+# Description : List the change returned from a purchase in descending order
+
+import sys
+
+value = [100.00, 50.00, 20.00, 10.00, 5.00, 2.00, 1.00, .50, .25, .10, .05, .01]
+
+valueName = {
+            100.00:'ONE HUNDRED',
+            50.00:'FIFTY',
+            20.00:'TWENTY',
+            10.00:'TEN',
+            5.00:'FIVE',
+            2.00:'TWO',
+            1.00:'ONE',
+            .50:'HALF DOLLAR',
+            .25:'QUARTER',
+            .10:'DIME',
+            .05:'NICKEL',
+            .01:'PENNY',
+        }
+
+test_cases = open("/Users/jimfo1/PycharmProjects/CashRegister/testdata", 'r')
+
+for test in test_cases:
+
+    PP, CH = [float(z) for z in test.strip().split(';')]
+    result = list()
+    change = CH - PP
+
+    if change < 0:
+        print "ERROR"
+
+    elif change == 0:
+        print "ZERO"
+
+    else:
+        while 1:
+            if change < 0.001:
+                break
+
+            for i in value:
+                if change + 0.01 >= i:
+                    change = change - i
+                    result.append(valueName[i])
+                    break
+
+        print ','.join(result)
+
+test_cases.close()
