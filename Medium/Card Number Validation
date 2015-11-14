@@ -1,0 +1,41 @@
+# Title : Card Number Validation by CodeEval
+# Author : James Fody
+# Description :  To check whether a bank card number is valid or it is it just a set of random numbers,
+# Luhn formula is used.
+# The formula verifies a number against its included check digit, which is usually appended to a partial
+# account number to generate the full account number. This account number must pass the following test:
+# From the rightmost digit, which is the check digit, moving left, double the value of every second digit;
+# if the product of this doubling operation is greater than 9 (for example, 7 x 2=14), then sum the digits
+# of the products (for example, 12:1+2=3, 14:1+4=5). Take the sum of all the digits.
+# If the total modulo 10 is equal to 0 (if the total ends in zero) then, according to the Luhn formula,
+# the number is valid; otherwise, it is not valid.
+
+import sys,json
+
+test_cases = open("/Users/jimfo1/PycharmProjects/CardNumberValidation/testdata", 'r')
+
+for test in test_cases:
+
+    num = [int(x) for x in ''.join(test.strip().split())]
+    x = 0
+    for i in xrange(len(num)-1, 0, -2):
+        i -= 1
+
+        if i > -1:
+            x = 2 * num[i]
+
+            if x < 10:
+                num[i] = x
+
+            else:
+                x = 1 + (x % 10)
+                num[i] = x
+
+    result = sum(num)
+
+    if result % 10 == 0:
+        print "1"
+    else:
+        print "0"
+
+test_cases.close()
