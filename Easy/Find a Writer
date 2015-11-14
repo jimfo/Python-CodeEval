@@ -1,0 +1,34 @@
+# TITLE : Find a Writer from CODE EVAL
+# AUTHOR : James Fody
+# DESCRIPTION :  You have a set of rows with names of famous writers encoded inside.
+#   Each row is divided into 2 parts by pipe char (|). The first part has a writer's name.
+#   The second part is a "key" to generate a name.
+#   Your goal is to go through each number in the key
+#   (numbers are separated by space) left-to-right.
+#   Each number represents a position in the 1st part of a row.
+#   This way you collect a writer's name which you have to output.
+
+import sys
+
+
+test_cases = open("/Users/jimfo1/Desktop/fizzbuzz3.txt", 'r')
+
+for test in test_cases:
+
+    test = test.strip()
+
+    if len(test) > 0:
+        idx = test.index("|")
+
+        scrambled = str([test[0: idx].strip()])
+        numkey = test[idx+1: len(test)].strip()
+
+        numkey = [int(x) for x in numkey.split()]
+        result = ""
+
+        for x in numkey:
+            result += ''.join(scrambled[x+1])
+
+        print result
+
+test_cases.close()
