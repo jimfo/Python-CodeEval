@@ -1,0 +1,36 @@
+# Title : Beautiful String by Facebook Hackathon
+# Author : James Fody
+# Description :  This is a FB Hackathon challenge, the solution is the sum of the frequency of a letter's
+# occurrence multiplied by a descending number starting at 26 down to 1. Ex. aaabbc = (3*26)+(2*25)+(1*24) = 152
+
+import sys
+
+import re
+test_cases = open("/Users/jimfo1/Desktop/fizzbuzz3.txt", 'r')
+
+for test in test_cases:
+
+    line = test.strip().lower()
+
+    unique = set()
+    freq = list()
+    result = 0
+    val = 26
+
+    for x in range(0, len(line)):
+        if 96 < ord(line[x]) < 123:
+            unique.add(line[x])
+
+    for u in unique:
+        freq.append(line.count(u))
+
+    freq = sorted(freq, reverse=True)
+
+    for x in range(0, len(freq)):
+        result += freq[x] * val
+        if val > 0:
+            val -= 1
+
+    print result
+
+test_cases.close()
