@@ -1,0 +1,29 @@
+# Title : Delta Time by CodeEval
+# Author : James Fody
+# Description : You are given the pairs of time values.
+# The values are in the HH:MM:SS format with leading zeros.
+# Your task is to find out the time difference between the pairs.
+
+import sys
+
+from datetime import datetime
+
+test_cases = open("/Users/jimfo1/Desktop/fizzbuzz3.txt", 'r')
+
+for test in test_cases:
+
+    test = test.split()
+    fmt = '%H:%M:%S'
+
+    t1 = test[0]
+    t2 = test[1]
+
+    if t1 > t2:
+        diff = datetime.strptime(t1, fmt) - datetime.strptime(t2, fmt)
+    else:
+        diff = datetime.strptime(t2, fmt) - datetime.strptime(t1, fmt)
+
+    print("%.2d:%.2d:%.2d" % (diff.seconds/3600, (diff.seconds/60) % 60, diff.seconds % 60))
+
+
+test_cases.close()
