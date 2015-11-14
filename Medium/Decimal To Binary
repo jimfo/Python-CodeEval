@@ -1,0 +1,15 @@
+# Title : Decimal to Binary by CodeEval
+# Created by David Arthur.
+# Author : James Fody
+# Description : Convert decimal to binary
+
+import sys
+
+test_cases = open("/Users/jimfo1/PycharmProjects/DecimalToBinary/testdata", 'r')
+
+for test in test_cases:
+
+    test = test.strip()
+    print bin(int(test))[2::]
+
+test_cases.close()
