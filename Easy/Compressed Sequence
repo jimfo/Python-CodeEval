@@ -1,0 +1,35 @@
+# TITLE : Compressed Sequence from CODE EVAL
+# AUTHOR : James Fody
+# DESCRIPTION : Program needs to count repetitions and compress the results by displaying
+# the frequency and number (ie 40 40 40 40 40 would be displayed as 5 40)
+
+import sys
+
+test_cases = open("/Users/jimfo1/Desktop/fizzbuzz3.txt", 'r')
+
+for test in test_cases:
+
+    test = test.strip().split()
+
+    counter = 1
+
+    result = ""
+
+    if len(test) == 1:
+        result += "1 " + test[0]
+
+    else:
+        for x in range(0, len(test)-1):
+
+            if test[x] == test[x+1]:
+                counter += 1
+            else:
+                result += str(counter) + " " + test[x] + " "
+                counter = 1
+
+            if x+1 == len(test)-1:
+                result += str(counter) + " " + test[x+1] + " "
+
+    print result
+
+test_cases.close()
