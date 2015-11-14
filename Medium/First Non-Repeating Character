@@ -1,0 +1,20 @@
+# Title : First Non-Repeating Character by CodeEval
+# Author : James Fody
+# Description :  Find the first non-repeating character
+
+import sys
+import collections
+
+test_cases = open("/Users/jimfo1/PycharmProjects/FirstNonRepeatedChar/testdata", 'r')
+
+for test in test_cases:
+
+    word = test.strip()
+
+    x = collections.Counter(word)
+    for letter in word:
+        if x[letter] == 1:
+            print letter
+            break
+
+test_cases.close()
