@@ -1,0 +1,54 @@
+# Title : Compare Points by CodeEval
+# Author : James Fody
+# Description : Given 2 sets of points, the first set is current location
+# 2nd set is location of destination relative to current location
+# Determine direction one must travel to get to destination.
+
+import sys
+test_cases = open("/Users/jimfo1/Desktop/fizzbuzz3.txt", 'r')
+
+for test in test_cases:
+
+    points = test.split()
+
+    x1 = int(points[0])
+    y1 = int(points[1])
+    x2 = int(points[2])
+    y2 = int(points[3])
+
+    x3 = x2 - x1
+    y3 = y2 - y1
+
+    x3 = int(x3)
+    y3 = int(y3)
+
+    if x3 == 0 and y3 == 0:
+        print "here"
+
+    elif x3 == 0 and y3 > 0:
+        print "N"
+
+    elif x3 == 0 and y3 < 0:
+        print "S"
+
+    elif y3 == 0 and x3 > 0:
+        print "E"
+
+    elif y3 == 0 and x3 < 0:
+        print "W"
+
+    elif x3 > 0 and y3 > 0:
+        print "NE"
+
+    elif x3 < 0 and y3 > 0:
+        print "NW"
+
+    elif x3 > 0 and y3 < 0:
+        print "SE"
+
+    elif x3 < 0 and y3 < 0:
+        print "SW"
+
+test_cases.close()
+
+
