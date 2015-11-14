@@ -1,0 +1,7 @@
+# Title : File Size by CodeEval
+# Author : James Fody
+# Description : Display the file size of given file in bytes
+
+import os,sys
+
+print os.stat(sys.argv[1]).st_size
