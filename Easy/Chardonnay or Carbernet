@@ -1,0 +1,25 @@
+# Title : Chardonnay or Cabernet by CodeEval
+# Author : James Fody
+# Description :  Find the given letters in names of wines and display the wines
+
+import sys
+
+test_cases = open("/Users/jimfo1/PycharmProjects/ChardonnayOrCarberet/testdata", 'r')
+
+for test in test_cases:
+
+    wines, hints = test.strip().split('|')
+
+    wines = wines.strip().split()
+    hints = list(hints.strip())
+    take = list()
+
+    matching = [s for s in wines if all(xs in s for xs in hints)]
+
+    if len(matching) > 0 and len(wines) > 0:
+        print ' '.join(matching)
+
+    else:
+        print "False"
+
+test_cases.close()
