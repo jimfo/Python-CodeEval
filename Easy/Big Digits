@@ -1,0 +1,32 @@
+# Title : Big Digits by CodeEval
+# Author : James Fody
+# Description : Display a magnified version of given digits
+
+import sys
+
+test_cases = open("/Users/jimfo1/PycharmProjects/BigDigits/testdata", 'r')
+
+Big_Digits = [["-**--","*--*-","*--*-","*--*-","-**--","-----"], # 0
+              ["--*--","-**--","--*--","--*--","-***-","-----"], # 1
+              ["***--","---*-","-**--","*----","****-","-----"], # 2
+              ["***--","---*-","-**--","---*-","***--","-----"], # 3
+              ["-*---","*--*-","****-","---*-","---*-","-----"], # 4
+              ["****-","*----","***--","---*-","***--","-----"], # 5
+              ["-**--","*----","***--","*--*-","-**--","-----"], # 6
+              ["****-","---*-","--*--","-*---","-*---","-----"], # 7
+              ["-**--","*--*-","-**--","*--*-","-**--","-----"], # 8
+              ["-**--","*--*-","-***-","---*-","-**--","-----"]] # 9
+
+for test in test_cases:
+
+    test = int(filter(str.isdigit, test))
+
+    for x in range(0, 6):
+
+        for y in range(0, len(str(test))-1):
+
+            print Big_Digits[y][x],
+            sys.stdout.write('')
+        print
+
+test_cases.close()
