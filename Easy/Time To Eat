@@ -1,0 +1,52 @@
+# TITLE : Time To Eat from CODE EVAL
+# AUTHOR : James Fody
+# DESCRIPTION : The first argument is a path to a file.
+# Each line includes a test case: a schedule containing unsorted timestamps in HH:MM:SS format.
+# Sort timestamps in each schedule from the biggest to the smallest one.
+
+import sys
+
+test_cases = open("/Users/jimfo1/Desktop/fizzbuzz1.txt", 'r')
+
+for test in test_cases:
+
+    times = test.split(" ")
+    hms = []
+
+    for t in times:
+        h = t.split(":")
+        x = int(h[0]) * 3600
+        x += int(h[1]) * 60
+        x += int(h[2])
+
+        hms.append(x)
+
+    hms.sort(reverse=True)
+
+    for h in hms:
+        ans = h/3600
+
+        if ans < 10:
+            ans = "0" + str(ans) + ":"
+        else:
+            ans = str(ans) + ":"
+
+        rem = (h % 3600) / 60
+
+        if rem < 10:
+            ans += "0" + str(rem) + ":"
+        else:
+            ans += str(rem) + ":"
+
+        rem = (h % 3600) % 60
+
+        if rem < 10:
+            ans += "0" + str(rem) + " "
+        else:
+            ans += str(rem) + " "
+
+        print ans,
+
+    print
+
+test_cases.close()
